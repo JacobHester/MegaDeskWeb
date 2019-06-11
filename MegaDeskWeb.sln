@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.202
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MegaDeskWeb", "MegaDeskWeb\MegaDeskWeb.csproj", "{42DEA99E-178E-4F43-9331-7A88581EC61B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{42DEA99E-178E-4F43-9331-7A88581EC61B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42DEA99E-178E-4F43-9331-7A88581EC61B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42DEA99E-178E-4F43-9331-7A88581EC61B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42DEA99E-178E-4F43-9331-7A88581EC61B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0980E4A9-E92A-47F5-80C5-D70F52DACFC9}
+	EndGlobalSection
+EndGlobal
