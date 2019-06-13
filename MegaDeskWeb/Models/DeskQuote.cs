@@ -8,12 +8,15 @@ using System.Threading.Tasks;
 
 namespace MegaDeskWeb
 {
-    public class DeskQuote { 
-        public Desk NewDesk { get; set; }
+    public class DeskQuote {
+        public int DeskQuoteID { get; set; }
+        public int DeskID { get; set; }
+        public Desk Desk { get; set; }
         public string Name { get; set; }
         public DateTime QuoteDate { get; set; }
-        public Rush Rush { get; set; }
         public decimal Price { get; set; }
+        public int RushShippingID { get; set; }
+        public RushShipping RushShipping { get; set; }
 
         public decimal QuoteTotal(DeskQuote deskQuote)
         {
@@ -25,12 +28,12 @@ namespace MegaDeskWeb
             var rushCost = 0;
 
             //Varialbles with values from deskQuote
-            var surfaceMaterial = deskQuote.NewDesk.SurfaceMaterial.ToString();
-            var rushValue = deskQuote.Rush.ToString();
+            var surfaceMaterial = deskQuote.Desk.SurfaceMaterial.ToString();
+    // TO BE FIXED var rushValue = deskQuote.Rush.ToString();
 
             //Variable with calculations
-            var surfaceArea = deskQuote.NewDesk.Depth * deskQuote.NewDesk.Width;
-            var drawerCost = deskQuote.NewDesk.NumDrawers * 50;
+            var surfaceArea = deskQuote.Desk.Depth * deskQuote.Desk.Width;
+            var drawerCost = deskQuote.Desk.NumDrawers * 50;
 
             //RushShipping Prices from .txt file
             String input = File.ReadAllText("rushOrderPrices.txt");
@@ -68,6 +71,7 @@ namespace MegaDeskWeb
             else { surfaceMaterialCost = 125; } //Veneer
 
             //Determine RushShipping Cost
+            /*
             if (rushValue == "Three_Day")
             {
                 if (surfaceArea <= 1000)
@@ -104,18 +108,11 @@ namespace MegaDeskWeb
                 }
                 else { rushCost = rushArray[2,1]; }
             }
+            */
             Price = quoteTotal + additionalMaterialCost + surfaceMaterialCost + rushCost + drawerCost;
             return Price;
         }
     }
-
-    public enum Rush
-    {
-        Standard,
-        Three_Day,
-        Five_Day,
-        Seven_Day,
-    };
 
     //toString("c")
     //Json array of deskquote with desk inside

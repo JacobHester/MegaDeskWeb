@@ -1,0 +1,57 @@
+﻿@page
+@model MegaDeskWeb.Pages.DeskQuotes.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>DeskQuote</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="DeskQuote.Desk.Width" class="control-label"></label>
+                <input asp-for="DeskQuote.Desk.Width" class="form-control" />
+                <span asp-validation-for="DeskQuote.Desk.Width" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DeskQuote.Desk.Depth" class="control-label"></label>
+                <input asp-for="DeskQuote.Desk.Depth" class="form-control" />
+                <span asp-validation-for="DeskQuote.Desk.Depth" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DeskQuote.Desk.NumDrawers" class="control-label"></label>
+                <input asp-for="DeskQuote.Desk.NumDrawers" class="form-control" />
+                <span asp-validation-for="DeskQuote.Desk.NumDrawers" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DeskQuote.Desk.SurfaceMaterial" class="control-label"></label>
+                <select asp-for="DeskQuote.Desk.SurfaceMaterial" class="form-control" asp-items="ViewBag.SurfaceMaterial"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="DeskQuote.Name" class="control-label"></label>
+                <input asp-for="DeskQuote.Name" class="form-control" />
+                <span asp-validation-for="DeskQuote.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DeskQuote.RushShipping" class="control-label"></label>
+                <select asp-for="DeskQuote.RushShipping" class="form-control" asp-items="ViewBag.RushShipping"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
