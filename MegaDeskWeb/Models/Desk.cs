@@ -5,21 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace MegaDeskWeb
-{
-    public enum SurfaceMaterial
-    {
-        Laminate,
-        Oak,
-        Veneer,
-        Rosewood,
-        Pine
-    };
-
+{ 
     public class Desk
     {
+        public int DeskID { get; set; }
         public decimal Width { get; set; }
         public decimal Depth { get; set; }
         public int NumDrawers { get; set; }
+        public int SurfaceMaterialID { get; set; }
         public SurfaceMaterial SurfaceMaterial { get; set; }
     }
 
