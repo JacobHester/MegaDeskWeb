@@ -101,6 +101,8 @@ namespace MegaDeskWeb.Migrations
                 name: "IX_DeskQuote_RushShippingID",
                 table: "DeskQuote",
                 column: "RushShippingID");
+
+            
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
