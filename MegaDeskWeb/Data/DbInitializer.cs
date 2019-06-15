@@ -27,6 +27,18 @@ namespace MegaDeskWeb.Models
                 context.Add(rS);
             }
             context.SaveChanges();
+            var surfaceMaterials= new SurfaceMaterial[]{
+                new SurfaceMaterial{SurfaceMaterialName="Oak",SurfaceMaterialPrice=200},
+                new SurfaceMaterial{SurfaceMaterialName="Laminate",SurfaceMaterialPrice=100},
+                new SurfaceMaterial{SurfaceMaterialName="Pine",SurfaceMaterialPrice=50},
+                new SurfaceMaterial{SurfaceMaterialName="Rosewood",SurfaceMaterialPrice=300},
+                new SurfaceMaterial{SurfaceMaterialName="Veneer",SurfaceMaterialPrice=125}
+            };
+            foreach(SurfaceMaterial s in surfaceMaterials)
+            {
+                context.Add(s);
+            }
+            context.SaveChanges();
         }
     }
 }

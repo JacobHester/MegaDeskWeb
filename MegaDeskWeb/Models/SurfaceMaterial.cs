@@ -9,6 +9,6 @@ namespace MegaDeskWeb
     {
         public int SurfaceMaterialID { get; set; }
         public string SurfaceMaterialName { get; set; }
-        public decimal SurfaceMaterialInt { get; set; }
+        public decimal SurfaceMaterialPrice { get; set; }
     }
 }

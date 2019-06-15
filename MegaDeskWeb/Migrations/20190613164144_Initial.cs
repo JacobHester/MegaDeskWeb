@@ -29,7 +29,7 @@ namespace MegaDeskWeb.Migrations
                     SurfaceMaterialID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     SurfaceMaterialName = table.Column<string>(nullable: true),
-                    SurfaceMaterialInt = table.Column<decimal>(nullable: false)
+                    SurfaceMaterialPrice = table.Column<decimal>(nullable: false)
                 },
                 constraints: table =>
                 {
