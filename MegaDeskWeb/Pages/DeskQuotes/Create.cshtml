@@ -30,7 +30,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="DeskQuote.Desk.SurfaceMaterial" class="control-label"></label>
-                <select asp-for="DeskQuote.Desk.SurfaceMaterial" class="form-control" asp-items="ViewBag.SurfaceMaterial"></select>
+                <select asp-for="DeskQuote.Desk.SurfaceMaterial" class="form-control" asp-items="@((List<SelectListItem>)ViewData["SurfaceMaterial"])"></select>
             </div>
             <div class="form-group">
                 <label asp-for="DeskQuote.Name" class="control-label"></label>
@@ -39,7 +39,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="DeskQuote.RushShipping" class="control-label"></label>
-                <select asp-for="DeskQuote.RushShipping" class="form-control" asp-items="ViewBag.RushShipping"></select>
+                <select asp-for="DeskQuote.RushShipping" class="form-control" asp-items="@Model.shippingTypes"></select>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

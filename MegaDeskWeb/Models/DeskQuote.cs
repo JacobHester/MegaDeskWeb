@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
 
 namespace MegaDeskWeb
 {
@@ -16,7 +17,8 @@ namespace MegaDeskWeb
         public DateTime QuoteDate { get; set; }
         public decimal Price { get; set; }
         public int RushShippingID { get; set; }
-        public RushShipping RushShipping { get; set; }
+        [BindProperty]
+         public RushShipping RushShipping { get; set; }
 
         public decimal QuoteTotal(DeskQuote deskQuote)
         {

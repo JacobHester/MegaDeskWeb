@@ -15,7 +15,8 @@ namespace MegaDeskWeb.Models
         }
 
         public DbSet<MegaDeskWeb.DeskQuote> DeskQuote { get; set; }
-
+        public DbSet<MegaDeskWeb.RushShipping> RushShipping { get; set; }
+        public DbSet<MegaDeskWeb.SurfaceMaterial> SurfaceMaterial { get; set; }
         public DbSet<MegaDeskWeb.Desk> Desk { get; set; }
     }
 }
