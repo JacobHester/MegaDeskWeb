@@ -29,7 +29,7 @@ namespace MegaDeskWeb.Pages.DeskQuotes
 
         private void PopulateShipping()
         {
-            var shipping = from r in _context.RushShipping select r;
+            var shipping = from r in _context.RushShipping select r.RushShippingName;
             shippingTypes = new SelectList(shipping, "RushShippingName");
         }
         [BindProperty]

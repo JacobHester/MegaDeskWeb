@@ -12,15 +12,15 @@ namespace MegaDeskWeb.Models
             }
             var shippingPrices = new RushShipping[]
             {
-                new RushShipping{RushShippingName="OneDayLarge",RushShippingPrice=80},
-                new RushShipping{RushShippingName="OneDayMedium",RushShippingPrice=70},
-                new RushShipping{RushShippingName="OneDaySmall",RushShippingPrice=60},
-                new RushShipping{RushShippingName="ThreeLarge",RushShippingPrice=60},
-                new RushShipping{RushShippingName="ThreeDayMedium",RushShippingPrice=50},
-                new RushShipping{RushShippingName="ThreeDaySmall",RushShippingPrice=40},
-                new RushShipping{RushShippingName="FiveDayLarge",RushShippingPrice=40},
-                new RushShipping{RushShippingName="FiveDayMedium",RushShippingPrice=35},
-                new RushShipping{RushShippingName="FiveDaySmall",RushShippingPrice=30}
+                new RushShipping{RushShippingName="One-Day Large",RushShippingPrice=80},
+                new RushShipping{RushShippingName="One-Day Medium",RushShippingPrice=70},
+                new RushShipping{RushShippingName="One-Day Small",RushShippingPrice=60},
+                new RushShipping{RushShippingName="Three-Day Large",RushShippingPrice=60},
+                new RushShipping{RushShippingName="Three-Day Medium",RushShippingPrice=50},
+                new RushShipping{RushShippingName="Three-Day Small",RushShippingPrice=40},
+                new RushShipping{RushShippingName="Five-Day Large",RushShippingPrice=40},
+                new RushShipping{RushShippingName="Five-Day Medium",RushShippingPrice=35},
+                new RushShipping{RushShippingName="Five-Day Small",RushShippingPrice=30}
             };
             foreach (RushShipping rS in shippingPrices)
             {
