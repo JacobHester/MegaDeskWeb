@@ -12,6 +12,7 @@ namespace MegaDeskWeb.Pages.DeskQuotes
 {
     public class CreateModel : PageModel
     {
+        public SelectList shippingTypes;
         private readonly MegaDeskWeb.Models.MegaDeskWebContext _context;
 
         public CreateModel(MegaDeskWeb.Models.MegaDeskWebContext context)
@@ -21,11 +22,16 @@ namespace MegaDeskWeb.Pages.DeskQuotes
 
         public IActionResult OnGet()
         {
-        ViewData["DeskID"] = new SelectList(_context.Set<Desk>(), "DeskID", "DeskID");
-        ViewData["RushShippingID"] = new SelectList(_context.Set<RushShipping>(), "RushShippingID", "RushShippingID");
+        PopulateShipping();
+        ViewData["RushShippingID"] = new SelectList(_context.Set<RushShipping>(), "RushShippingID", "RushShippingName");
             return Page();
         }
 
+        private void PopulateShipping()
+        {
+            var shipping = from r in _context.RushShipping select r;
+            shippingTypes = new SelectList(shipping, "RushShippingName");
+        }
         [BindProperty]
         public DeskQuote DeskQuote { get; set; }
 
