@@ -5,14 +5,17 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
-
-<h4>DeskQuote</h4>
+<h1>Create Desk Quote</h1>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="DeskQuote.Name" class="control-label"></label>
+                <input asp-for="DeskQuote.Name" class="form-control" />
+                <span asp-validation-for="DeskQuote.Name" class="text-danger"></span>
+            </div>
             <div class="form-group">
                 <label asp-for="DeskQuote.Desk.Width" class="control-label"></label>
                 <input asp-for="DeskQuote.Desk.Width" class="form-control" />
@@ -33,23 +36,18 @@
                 <select asp-for="DeskQuote.Desk.SurfaceMaterial" class="form-control" asp-items="@((List<SelectListItem>)ViewData["SurfaceMaterial"])"></select>
             </div>
             <div class="form-group">
-                <label asp-for="DeskQuote.Name" class="control-label"></label>
-                <input asp-for="DeskQuote.Name" class="form-control" />
-                <span asp-validation-for="DeskQuote.Name" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label asp-for="DeskQuote.RushShipping" class="control-label"></label>
                 <select asp-for="DeskQuote.RushShipping" class="form-control" asp-items="@Model.shippingTypes"></select>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-success" />
+                <a asp-page="Index" class="btn btn-warning">Back to List</a>
             </div>
         </form>
     </div>
-</div>
-
-<div>
-    <a asp-page="Index" class="btn btn-warning">Back to List</a>
+    <div class="col-md-8 text-center" style="padding:200px;">
+        <p>this is a test</p>
+    </div>
 </div>
 
 @section Scripts {
