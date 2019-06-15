@@ -11,4 +11,5 @@ namespace MegaDeskWeb
         public string RushShippingName { get; set; }
         public decimal RushShippingPrice { get; set; }
     }
+
 }

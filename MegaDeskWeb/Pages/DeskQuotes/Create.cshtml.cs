@@ -7,12 +7,15 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using MegaDeskWeb;
 using MegaDeskWeb.Models;
+using static System.Net.Mime.MediaTypeNames;
+using Microsoft.EntityFrameworkCore;
 
 namespace MegaDeskWeb.Pages.DeskQuotes
 {
     public class CreateModel : PageModel
     {
-        public SelectList shippingTypes;
+        public SelectList ShippingTypes{get;set;}
+        public SelectList SurfaceMaterials{get;set;}
         private readonly MegaDeskWeb.Models.MegaDeskWebContext _context;
 
         public CreateModel(MegaDeskWeb.Models.MegaDeskWebContext context)
@@ -22,15 +25,24 @@ namespace MegaDeskWeb.Pages.DeskQuotes
 
         public IActionResult OnGet()
         {
-        PopulateShipping();
-        ViewData["RushShippingID"] = new SelectList(_context.Set<RushShipping>(), "RushShippingID", "RushShippingName");
+            PopulateShippingTypes();
+            PopulateSurfaceMaterials();
             return Page();
         }
 
-        private void PopulateShipping()
+        private void PopulateShippingTypes()
         {
-            var shipping = from r in _context.RushShipping select r.RushShippingName;
-            shippingTypes = new SelectList(shipping, "RushShippingName");
+            var shipping = from r in _context.RushShipping 
+                            orderby r.RushShippingID
+                            select r;
+            SurfaceMaterials = new SelectList(shipping.AsNoTracking(),nameof(RushShipping.RushShippingID),nameof(RushShipping.RushShippingName));
+        }        
+        private void PopulateSurfaceMaterials()
+        {
+             var materials = from s in _context.SurfaceMaterial
+                             orderby s.SurfaceMaterialID
+                             select s;
+            SurfaceMaterials = new SelectList(materials.AsNoTracking(),nameof(SurfaceMaterial.SurfaceMaterialID),nameof(SurfaceMaterial.SurfaceMaterialName));
         }
         [BindProperty]
         public DeskQuote DeskQuote { get; set; }
