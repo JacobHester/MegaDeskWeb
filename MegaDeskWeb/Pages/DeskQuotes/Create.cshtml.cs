@@ -7,16 +7,18 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using MegaDeskWeb;
 using MegaDeskWeb.Models;
-using static System.Net.Mime.MediaTypeNames;
 using Microsoft.EntityFrameworkCore;
 
 namespace MegaDeskWeb.Pages.DeskQuotes
 {
     public class CreateModel : PageModel
     {
-        public SelectList ShippingTypes{get;set;}
-        public SelectList SurfaceMaterials{get;set;}
-        private readonly MegaDeskWeb.Models.MegaDeskWebContext _context;
+
+        public RushShipping localShip { get; set; }
+        public SurfaceMaterial localMaterial { get; set; }
+        public List<SelectListItem> ShippingTypes{get;set;}
+        public  SelectList SurfaceMaterials{get;set;}
+        private MegaDeskWeb.Models.MegaDeskWebContext _context;
 
         public CreateModel(MegaDeskWeb.Models.MegaDeskWebContext context)
         {
@@ -32,10 +34,12 @@ namespace MegaDeskWeb.Pages.DeskQuotes
 
         private void PopulateShippingTypes()
         {
-            var shipping = from r in _context.RushShipping 
-                            orderby r.RushShippingID
-                            select r;
-            SurfaceMaterials = new SelectList(shipping.AsNoTracking(),nameof(RushShipping.RushShippingID),nameof(RushShipping.RushShippingName));
+            ShippingTypes = new List<SelectListItem>(){
+                new SelectListItem{Value = "0", Text= "Standard Shipping"},
+                new SelectListItem{Value = "3", Text="3-Day Shipping" },
+                new SelectListItem{Value = "5", Text="5-Day Shipping"},
+                new SelectListItem{Value = "7", Text="7-Day Shipping"}
+            };
         }        
         private void PopulateSurfaceMaterials()
         {
@@ -47,12 +51,14 @@ namespace MegaDeskWeb.Pages.DeskQuotes
         [BindProperty]
         public DeskQuote DeskQuote { get; set; }
 
+
         public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)
             {
                 return Page();
             }
+            
 
             _context.DeskQuote.Add(DeskQuote);
             await _context.SaveChangesAsync();

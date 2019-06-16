@@ -16,6 +16,7 @@ namespace MegaDeskWeb
         public string Name { get; set; }
         public DateTime QuoteDate { get; set; }
         public decimal Price { get; set; }
+        public int ShipSelector {get;set;}
         public int RushShippingID { get; set; }
         [BindProperty]
          public RushShipping RushShipping { get; set; }
@@ -72,6 +73,7 @@ namespace MegaDeskWeb
                 surfaceMaterialCost = 300; }
             else { surfaceMaterialCost = 125; } //Veneer
 
+         
             //Determine RushShipping Cost
             /*
             if (rushValue == "Three_Day")
