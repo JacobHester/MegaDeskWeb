@@ -8,13 +8,16 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using MegaDeskWeb;
 using MegaDeskWeb.Models;
 using Microsoft.EntityFrameworkCore;
+using MegaDeskWeb.Data.Processing;
 
 namespace MegaDeskWeb.Pages.DeskQuotes
 {
     public class CreateModel : PageModel
     {
-
-        public RushShipping localShip { get; set; }
+            
+        [BindProperty]
+        public int SelectedShip { get; set; }
+        [BindProperty]
         public SurfaceMaterial localMaterial { get; set; }
         public List<SelectListItem> ShippingTypes{get;set;}
         public  SelectList SurfaceMaterials{get;set;}
@@ -58,8 +61,8 @@ namespace MegaDeskWeb.Pages.DeskQuotes
             {
                 return Page();
             }
-            
 
+            DeskQuote= Calculations.PopulateQuote(DeskQuote, SelectedShip,localMaterial,_context);
             _context.DeskQuote.Add(DeskQuote);
             await _context.SaveChangesAsync();
 

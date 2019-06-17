@@ -20,7 +20,8 @@ namespace MegaDeskWeb.Models
                 new RushShipping{RushShippingName="Five-Day Small",RushShippingPrice=40},
                 new RushShipping{RushShippingName="Seven-Day Large",RushShippingPrice=40},
                 new RushShipping{RushShippingName="Seven-Day Medium",RushShippingPrice=35},
-                new RushShipping{RushShippingName="Seven-Day Small",RushShippingPrice=30}
+                new RushShipping{RushShippingName="Seven-Day Small",RushShippingPrice=30},
+                new RushShipping{RushShippingName="Standard",RushShippingPrice= 0}
             };
             foreach (RushShipping rS in shippingPrices)
             {
