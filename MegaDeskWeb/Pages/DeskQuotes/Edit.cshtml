@@ -13,31 +13,45 @@
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="DeskQuote.DeskQuoteID" />
-            <div class="form-group">
-                <label asp-for="DeskQuote.DeskID" class="control-label"></label>
-                <select asp-for="DeskQuote.DeskID" class="form-control" asp-items="ViewBag.DeskID"></select>
-                <span asp-validation-for="DeskQuote.DeskID" class="text-danger"></span>
-            </div>
             <div class="form-group">
                 <label asp-for="DeskQuote.Name" class="control-label"></label>
                 <input asp-for="DeskQuote.Name" class="form-control" />
                 <span asp-validation-for="DeskQuote.Name" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="DeskQuote.Desk.Width" class="control-label"></label>
+                <input asp-for="DeskQuote.Desk.Width" class="form-control" />
+                <span asp-validation-for="DeskQuote.Desk.Width" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DeskQuote.Desk.Depth" class="control-label"></label>
+                <input asp-for="DeskQuote.Desk.Depth" class="form-control" />
+                <span asp-validation-for="DeskQuote.Desk.Depth" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DeskQuote.Desk.NumDrawers" class="control-label"></label>
+                <input asp-for="DeskQuote.Desk.NumDrawers" class="form-control" />
+                <span asp-validation-for="DeskQuote.Desk.NumDrawers" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DeskQuote.Desk.SurfaceMaterialID" class="control-label"></label>
+                <select asp-for="DeskQuote.Desk.SurfaceMaterialID" class="form-control" asp-items="ViewBag.SurfaceMaterialID"></select>
+                <span asp-validation-for="DeskQuote.Desk.SurfaceMaterialID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="DeskQuote.QuoteDate" class="control-label"></label>
                 <input asp-for="DeskQuote.QuoteDate" class="form-control" />
                 <span asp-validation-for="DeskQuote.QuoteDate" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group" contenteditable="false">
                 <label asp-for="DeskQuote.Price" class="control-label"></label>
                 <input asp-for="DeskQuote.Price" class="form-control" />
                 <span asp-validation-for="DeskQuote.Price" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="DeskQuote.RushShippingID" class="control-label"></label>
-                <select asp-for="DeskQuote.RushShippingID" class="form-control" asp-items="ViewBag.RushShippingID"></select>
-                <span asp-validation-for="DeskQuote.RushShippingID" class="text-danger"></span>
+                <label asp-for="DeskQuote.RushShipping.RushShippingName" class="control-label"></label>
+                <select asp-for="DeskQuote.RushShipping.RushShippingName" class="form-control" asp-items="ViewBag.RushShipping.RushShippingName"></select>
+                <span asp-validation-for="DeskQuote.RushShipping.RushShippingName" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
