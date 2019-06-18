@@ -22,7 +22,7 @@ namespace MegaDeskWeb.Pages.DeskQuotes
         public List<SelectListItem> ShippingTypes{get;set;}
         public  SelectList SurfaceMaterials{get;set;}
         private MegaDeskWeb.Models.MegaDeskWebContext _context;
-
+        
         public CreateModel(MegaDeskWeb.Models.MegaDeskWebContext context)
         {
             _context = context;
