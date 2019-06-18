@@ -25,6 +25,7 @@ namespace MegaDeskWeb
                 try
                 {
                     var context = services.GetRequiredService<MegaDeskWebContext>();
+                    context.Database.EnsureCreated();
                     DbInitializer.Initialize(context);
                 }
                 catch (Exception ex)
