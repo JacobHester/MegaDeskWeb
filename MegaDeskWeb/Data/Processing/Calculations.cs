@@ -6,14 +6,16 @@ namespace MegaDeskWeb.Data.Processing
 {
     public class Calculations
     {
-        public static DeskQuote PopulateQuote(DeskQuote incompleteQuote, int shipSelector, SurfaceMaterial material, MegaDeskWebContext context)
+        public static DeskQuote PopulateQuote(DeskQuote incompleteQuote, int shipSelector, int material, MegaDeskWebContext context)
         {
-            incompleteQuote.Desk.SurfaceMaterial = material;
-            incompleteQuote.Desk.SurfaceMaterialID = material.SurfaceMaterialID;
+            incompleteQuote.Desk.SurfaceMaterial = context.SurfaceMaterial.Where(s => s.SurfaceMaterialID == material).FirstOrDefault();
+            incompleteQuote.Desk.SurfaceMaterialID = material;
             decimal surfaceArea = incompleteQuote.Desk.Width * incompleteQuote.Desk.Depth;
             decimal price = 200;
 
             // add surfacematerial price
+            
+            
             price += incompleteQuote.Desk.SurfaceMaterial.SurfaceMaterialPrice;
             // add drawer price
             price += incompleteQuote.Desk.NumDrawers * 50;
