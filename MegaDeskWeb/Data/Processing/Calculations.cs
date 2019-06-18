@@ -12,7 +12,7 @@ namespace MegaDeskWeb.Data.Processing
             incompleteQuote.Desk.SurfaceMaterialID = material;
             decimal surfaceArea = incompleteQuote.Desk.Width * incompleteQuote.Desk.Depth;
             decimal price = 200;
-
+            incompleteQuote.QuoteDate = DateTime.Now;    
             // add surfacematerial price
             
             
