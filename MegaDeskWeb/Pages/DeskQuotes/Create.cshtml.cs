@@ -18,7 +18,7 @@ namespace MegaDeskWeb.Pages.DeskQuotes
         [BindProperty]
         public int SelectedShip { get; set; }
         [BindProperty]
-        public SurfaceMaterial localMaterial { get; set; }
+        public int localMaterialID { get; set; }
         public List<SelectListItem> ShippingTypes{get;set;}
         public  SelectList SurfaceMaterials{get;set;}
         private MegaDeskWeb.Models.MegaDeskWebContext _context;
@@ -61,8 +61,7 @@ namespace MegaDeskWeb.Pages.DeskQuotes
             {
                 return Page();
             }
-
-            DeskQuote= Calculations.PopulateQuote(DeskQuote, SelectedShip,localMaterial,_context);
+            DeskQuote = Calculations.PopulateQuote(DeskQuote, SelectedShip, localMaterialID, _context);
             _context.DeskQuote.Add(DeskQuote);
             await _context.SaveChangesAsync();
 
