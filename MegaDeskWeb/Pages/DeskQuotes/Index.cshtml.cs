@@ -21,6 +21,10 @@ namespace MegaDeskWeb.Pages.DeskQuotes
             _context = context;
         }
 
+        [BindProperty(SupportsGet = true)]
+        public string SearchString { get; set; }
+
+
         public IList<DeskQuote> DeskQuote { get;set; }
 
         public async Task OnGetAsync(string sortOrder)
@@ -54,6 +58,14 @@ namespace MegaDeskWeb.Pages.DeskQuotes
             DeskQuote = await deskQuoteIQ
                 .Include(d => d.Desk)
                 .Include(d => d.RushShipping).ToListAsync();
+            var names = from m in _context.DeskQuote
+                        select m;
+            if (!string.IsNullOrEmpty(SearchString))
+            {
+                names = names.Where(s => s.Name.Contains(SearchString));
+            }
+
+            DeskQuote = await names.ToListAsync();
         }
     }
 }
