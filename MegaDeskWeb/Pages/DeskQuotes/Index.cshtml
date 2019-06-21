@@ -20,15 +20,21 @@
     <thead>
         <tr>
             <th>
+                <a asp-page= "./Index" asp-route-sortOrder="@Model.NameSort">
                 @Html.DisplayNameFor(model => model.DeskQuote[0].Name)
+                </a>
             </th>
             <th>
+                <a asp-page= "./Index" asp-route-sortOrder="@Model.DateSort">
                 @Html.DisplayNameFor(model => model.DeskQuote[0].QuoteDate)
+                </a>
             </th>
             <th>
+               
                 @Html.DisplayNameFor(model => model.DeskQuote[0].Price)
             </th>
             <th>
+                
                 @Html.DisplayNameFor(model => model.DeskQuote[0].RushShipping)
             </th>
             <th></th>
